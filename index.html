@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment Form</title>
+<style>
+   .submissiontime{
+ margin-top: 20px;
+ font-weight: bold
+}
+</style>
+</head>
+<body align="left" bgcolor="#b3ffb3">
+
+  <h1 size="20px">Student Assignment Form</h1>
+
+  <form action="https://script.google.com/macros/s/AKfycbza3WN_Ynurw0ONItKOi3JQIxYnjOZfRHWQxN6bazmzHh4WheE-M8l_4Gz-E0rD2NcL/exec" method="POST" onsubmit="addTimestamp()">
+
+    <label style="font-size: 25px; color:#0000e6">Name:<br><input type="text" name="name" required></label><br><br>
+<label style="font-size: 25px; color:#0000e6">Hall Ticket No:<br><input type="text" name="name" required></label><br><br>
+<label style="font-size: 25px; color:#0000e6">Subject<br><input type="text" name="name" required></label><br><br>
+<label style="font-size: 25px; color:#0000e6">Group and Year<br><input type="text" name="name" required></label><br><br>
+    <label style="font-size: 25px; color:#0000e6">Write a program on five javascript event handling functions<br><textarea name="q1" required rows="20" cols="70" style="background-color: #c299ff; color: #333; border-radius: 15px;border: 3px solid #000;"></textarea></label><br><br>
+    <label style="font-size: 25px; color:#0000e6">Explain DTD and DOM in your own words <br><textarea name="q2" required rows="20" cols="70" style="background-color: #00ffff; color: #333;border-radius: 15px; border: 3px solid #000;"></textarea></label><br><br>
+    
+ 
+  
+   <button type="submit">Submit</button>
+
+  </form>
+<script>
+        // Disable right-click and text selection
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener("selectstart", function(event) {
+            event.preventDefault();
+        });
+     document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'v')) {
+        e.preventDefault();  // Prevent copying or pasting
+    }
+   });
+    
+document.getElementById('assignmentForm').addEventListener('submit', function (event) {
+    event.preventDefault();  // Prevent the form from submitting the traditional way
+
+    // Get the current date and time
+    const currentDateTime = new Date();
+    const formattedTime = currentDateTime.toLocaleString(); // Localized date-time format
+
+    // Display the submission time in the document
+    document.getElementById('submissionTime').textContent = `Form submitted at: ${formattedTime}`;
+
+    // Optionally, you can submit the form data to the server here if needed
+    // For example: 
+    // fetch('/submit', { method: 'POST', body: new FormData(event.target) })
+});
+
+
+
+    
+</script>
+</body>
+</html>
